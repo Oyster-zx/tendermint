@@ -51,12 +51,12 @@ func validateBlock(state State, block *types.Block) error {
 	}
 
 	// Validate app info
-	if !bytes.Equal(block.AppHash, state.AppHash) {
-		return fmt.Errorf("wrong Block.Header.AppHash.  Expected %X, got %v",
-			state.AppHash,
-			block.AppHash,
-		)
-	}
+	//if !bytes.Equal(block.AppHash, state.AppHash) {
+	//	return fmt.Errorf("wrong Block.Header.AppHash.  Expected %X, got %v",
+	//		state.AppHash,
+	//		block.AppHash,
+	//	)
+	//}
 	hashCP := types.HashConsensusParams(state.ConsensusParams)
 	if !bytes.Equal(block.ConsensusHash, hashCP) {
 		return fmt.Errorf("wrong Block.Header.ConsensusHash.  Expected %X, got %v",
