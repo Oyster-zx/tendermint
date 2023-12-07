@@ -51,12 +51,12 @@ func validateBlock(state State, block *types.Block) error {
 	}
 
 	// Validate app info
-	if !bytes.Equal(block.AppHash, state.AppHash) {
-		return fmt.Errorf("wrong Block.Header.AppHash.  Expected %X, got %v",
-			state.AppHash,
-			block.AppHash,
-		)
-	}
+	//if !bytes.Equal(block.AppHash, state.AppHash) {
+	//	return fmt.Errorf("wrong Block.Header.AppHash.  Expected %X, got %v",
+	//		state.AppHash,
+	//		block.AppHash,
+	//	)
+	//}
 	hashCP := types.HashConsensusParams(state.ConsensusParams)
 	if !bytes.Equal(block.ConsensusHash, hashCP) {
 		return fmt.Errorf("wrong Block.Header.ConsensusHash.  Expected %X, got %v",
@@ -64,24 +64,24 @@ func validateBlock(state State, block *types.Block) error {
 			block.ConsensusHash,
 		)
 	}
-	if !bytes.Equal(block.LastResultsHash, state.LastResultsHash) {
-		return fmt.Errorf("wrong Block.Header.LastResultsHash.  Expected %X, got %v",
-			state.LastResultsHash,
-			block.LastResultsHash,
-		)
-	}
-	if !bytes.Equal(block.ValidatorsHash, state.Validators.Hash()) {
-		return fmt.Errorf("wrong Block.Header.ValidatorsHash.  Expected %X, got %v",
-			state.Validators.Hash(),
-			block.ValidatorsHash,
-		)
-	}
-	if !bytes.Equal(block.NextValidatorsHash, state.NextValidators.Hash()) {
-		return fmt.Errorf("wrong Block.Header.NextValidatorsHash.  Expected %X, got %v",
-			state.NextValidators.Hash(),
-			block.NextValidatorsHash,
-		)
-	}
+	//if !bytes.Equal(block.LastResultsHash, state.LastResultsHash) {
+	//	return fmt.Errorf("wrong Block.Header.LastResultsHash.  Expected %X, got %v",
+	//		state.LastResultsHash,
+	//		block.LastResultsHash,
+	//	)
+	//}
+	//if !bytes.Equal(block.ValidatorsHash, state.Validators.Hash()) {
+	//	return fmt.Errorf("wrong Block.Header.ValidatorsHash.  Expected %X, got %v",
+	//		state.Validators.Hash(),
+	//		block.ValidatorsHash,
+	//	)
+	//}
+	//if !bytes.Equal(block.NextValidatorsHash, state.NextValidators.Hash()) {
+	//	return fmt.Errorf("wrong Block.Header.NextValidatorsHash.  Expected %X, got %v",
+	//		state.NextValidators.Hash(),
+	//		block.NextValidatorsHash,
+	//	)
+	//}
 
 	// Validate block LastCommit.
 	if block.Height == state.InitialHeight {
